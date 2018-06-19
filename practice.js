@@ -28,6 +28,9 @@
 */
 
 // Code Here 
+const first = (arr, callback) => {
+  callback(arr[0]);
+}
 
 // Do not edit the code below.
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -48,7 +51,9 @@ first(names, function(firstName){
 */
 
 //Code Here
-
+const last = (arr, callback) => {
+  callback(arr[arr.length - 1]);
+}
 // Do not edit the code below.
 last(names, function(lastName){
   console.log('The last name in names is ' + lastName);
@@ -66,7 +71,9 @@ last(names, function(lastName){
 */
 
 //Code Here
-
+const multiply = (x, y, callback) => {
+  callback(x * y);
+}
 // Do not edit the code below.
 multiply(4, 3, function(answer){
   console.log('The answer is ' + answer); //should console.log 12
@@ -85,7 +92,9 @@ multiply(4, 3, function(answer){
 */
 
 //Code Here 
-
+const contains = (arr, name, callback) => {
+  arr.includes(name) ? callback(true) : callback(false);
+}
 // Do not edit the code below.
 contains(names, 'Colt', function(result){
   if(result === true){
@@ -106,6 +115,11 @@ contains(names, 'Colt', function(result){
 */
 
 //Code Here
+const uniq = (arr, callback) => {
+  arr = new Set(arr);
+  arr = Array.from(arr);
+  callback(arr);
+}
 
 // Do not edit the code below.
 uniq(names, function(uniqArr){
@@ -123,6 +137,11 @@ uniq(names, function(uniqArr){
 */
 
 //Code Here 
+const each = (names, callback) => {
+  names.forEach((name, i) => {
+    callback(name, i);
+  });
+}
 
 // Do not edit the code below.
 each(names, function(item, indice){
@@ -140,7 +159,13 @@ each(names, function(item, indice){
 */
 
 // Code here
-
+const getUserById = (users, id, callback) => {
+  for(let i = 0; i < users.length; i++) {
+    if(users[i].id === id) {
+      callback(users[i]);
+    }
+  }
+}
 // Do not edit the code below.
 var users = [
   {
